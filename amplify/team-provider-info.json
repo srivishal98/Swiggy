@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-swiggy-dev-160738-authRole",
+      "UnauthRoleArn": "arn:aws:iam::124428461337:role/amplify-swiggy-dev-160738-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::124428461337:role/amplify-swiggy-dev-160738-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-swiggy-dev-160738-deployment",
+      "UnauthRoleName": "amplify-swiggy-dev-160738-unauthRole",
+      "StackName": "amplify-swiggy-dev-160738",
+      "StackId": "arn:aws:cloudformation:ap-south-1:124428461337:stack/amplify-swiggy-dev-160738/47746650-2ad7-11ee-a05c-06897b4c7710",
+      "AmplifyAppId": "d1c7upgg1r2og3"
+    },
+    "categories": {
+      "auth": {
+        "swiggy93f8ea4d": {}
+      }
+    }
+  }
+}
