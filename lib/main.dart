@@ -5,33 +5,22 @@ import 'package:flutter/material.dart';
 
 import 'amplifyconfiguration.dart';
 
-void main() {
+Future<void> main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await _configureAmplify();
   runApp(const MyApp());
 }
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
+Future<void> _configureAmplify() async {
+  try {
+    await Amplify.addPlugin(AmplifyAuthCognito());
+    await Amplify.configure(amplifyconfig);
+    safePrint('Successfully configured');
+  } on Exception catch (e) {
+    safePrint('Error configuring Amplify: $e');
+  }
 }
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-    _configureAmplify();
-  }
-
-  void _configureAmplify() async {
-    try {
-      await Amplify.addPlugin(AmplifyAuthCognito());
-      await Amplify.configure(amplifyconfig);
-      safePrint('Successfully configured');
-    } on Exception catch (e) {
-      safePrint('Error configuring Amplify: $e');
-    }
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +28,15 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         builder: Authenticator.builder(),
         home: const Scaffold(
-          body: Center(
-            child: Text('Login Successfully!'),
+          body: Column(
+            children: [
+              Padding(padding: EdgeInsets.all(8.0),
+                 child: Text('Login Successfully!'),
+              ),
+              SignOutButton(),
+
+            ]
+
           ),
         ),
       ),
