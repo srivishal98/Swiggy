@@ -2,6 +2,7 @@ import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_authenticator/amplify_authenticator.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:swiggy/views/screenNavigation/screenNavigation.dart';
 
 import 'amplifyconfiguration.dart';
 
@@ -26,18 +27,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Authenticator(
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         builder: Authenticator.builder(),
         home: const Scaffold(
-          body: Column(
-            children: [
-              Padding(padding: EdgeInsets.all(8.0),
-                 child: Text('Login Successfully!'),
-              ),
-              SignOutButton(),
-
-            ]
-
-          ),
+          body: ScreenNavigator()
         ),
       ),
     );
