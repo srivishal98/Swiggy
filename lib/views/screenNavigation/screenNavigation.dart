@@ -31,7 +31,7 @@ class _ScreenNavigatorState
     Theme
         .of(context)
         .textTheme
-        .subtitle2!
+        .titleSmall!
         .copyWith(fontSize: 8.0);
 
     return Scaffold(

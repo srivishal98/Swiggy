@@ -1,0 +1,11 @@
+{
+  "resourceName": "s3swiggystoragefa868f6d",
+  "bucketName": "swiggy-storage-fa868f6d",
+  "policyUUID": "a7fdd48a",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "READ",
+    "CREATE_AND_UPDATE"
+  ]
+}

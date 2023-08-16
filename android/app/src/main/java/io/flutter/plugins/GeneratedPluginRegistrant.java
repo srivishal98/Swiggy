@@ -26,6 +26,11 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin amplify_auth_cognito, com.amazonaws.amplify.amplify_auth_cognito.AmplifyAuthCognitoPlugin", e);
     }
     try {
+      flutterEngine.getPlugins().add(new com.amazonaws.amplify.amplify_datastore.AmplifyDataStorePlugin());
+    } catch(Exception e) {
+      Log.e(TAG, "Error registering plugin amplify_datastore, com.amazonaws.amplify.amplify_datastore.AmplifyDataStorePlugin", e);
+    }
+    try {
       flutterEngine.getPlugins().add(new com.amazonaws.amplify.amplify_db_common.AmplifyDbCommonPlugin());
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin amplify_db_common, com.amazonaws.amplify.amplify_db_common.AmplifyDbCommonPlugin", e);

@@ -12,6 +12,12 @@
 @import amplify_auth_cognito;
 #endif
 
+#if __has_include(<amplify_datastore/AmplifyDataStorePlugin.h>)
+#import <amplify_datastore/AmplifyDataStorePlugin.h>
+#else
+@import amplify_datastore;
+#endif
+
 #if __has_include(<amplify_secure_storage/AmplifySecureStoragePlugin.h>)
 #import <amplify_secure_storage/AmplifySecureStoragePlugin.h>
 #else
@@ -52,6 +58,7 @@
 
 + (void)registerWithRegistry:(NSObject<FlutterPluginRegistry>*)registry {
   [AmplifyAuthCognitoPlugin registerWithRegistrar:[registry registrarForPlugin:@"AmplifyAuthCognitoPlugin"]];
+  [AmplifyDataStorePlugin registerWithRegistrar:[registry registrarForPlugin:@"AmplifyDataStorePlugin"]];
   [AmplifySecureStoragePlugin registerWithRegistrar:[registry registrarForPlugin:@"AmplifySecureStoragePlugin"]];
   [FLTDeviceInfoPlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTDeviceInfoPlusPlugin"]];
   [FLTLibphonenumberPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTLibphonenumberPlugin"]];
