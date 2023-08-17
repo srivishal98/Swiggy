@@ -24,6 +24,12 @@
 @import amplify_secure_storage;
 #endif
 
+#if __has_include(<connectivity_plus/ConnectivityPlusPlugin.h>)
+#import <connectivity_plus/ConnectivityPlusPlugin.h>
+#else
+@import connectivity_plus;
+#endif
+
 #if __has_include(<device_info_plus/FLTDeviceInfoPlusPlugin.h>)
 #import <device_info_plus/FLTDeviceInfoPlusPlugin.h>
 #else
@@ -60,6 +66,7 @@
   [AmplifyAuthCognitoPlugin registerWithRegistrar:[registry registrarForPlugin:@"AmplifyAuthCognitoPlugin"]];
   [AmplifyDataStorePlugin registerWithRegistrar:[registry registrarForPlugin:@"AmplifyDataStorePlugin"]];
   [AmplifySecureStoragePlugin registerWithRegistrar:[registry registrarForPlugin:@"AmplifySecureStoragePlugin"]];
+  [ConnectivityPlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"ConnectivityPlusPlugin"]];
   [FLTDeviceInfoPlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTDeviceInfoPlusPlugin"]];
   [FLTLibphonenumberPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTLibphonenumberPlugin"]];
   [FLTPackageInfoPlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTPackageInfoPlusPlugin"]];

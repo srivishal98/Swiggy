@@ -1,3 +1,4 @@
+import 'package:amplify_api/amplify_api.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_authenticator/amplify_authenticator.dart';
 import 'package:amplify_datastore/amplify_datastore.dart';
@@ -23,13 +24,24 @@ Future<void> _configureAmplify() async {
     await Amplify.addPlugin(AmplifyAuthCognito());
     await Amplify.configure(amplifyconfig);
     final provider = ModelProvider();
-    final dataStorePlugin = AmplifyDataStore(modelProvider: provider);
 
-    await _amplify.addPlugins([dataStorePlugin]);
+    final dataStorePlugin = AmplifyDataStore(modelProvider: ModelProvider.instance);
+    await _amplify.addPlugin(dataStorePlugin);
     await _amplify.configure(amplifyconfig);
+    await _amplify.addPlugin(AmplifyAPI());
     safePrint('Successfully configured');
   } on Exception catch (e) {
     safePrint('Error configuring Amplify: $e');
+  }
+  final datastorePlugin =
+  AmplifyDataStore(modelProvider: ModelProvider.instance);
+  await Amplify.addPlugin(datastorePlugin);
+
+  try {
+    await Amplify.configure(amplifyconfig);
+  } on AmplifyAlreadyConfiguredException {
+    safePrint(
+        'Tried to reconfigure Amplify; this can occur when your app restarts on Android.');
   }
 }
 class MyApp extends StatelessWidget {

@@ -102,7 +102,7 @@ class AllRestaurantsScreen extends StatelessWidget {
         UIHelper.horizontalSpaceSmall(),
         Text(
           'Now',
-          style: Theme.of(context).textTheme.subtitle2!.copyWith(
+          style: Theme.of(context).textTheme.titleSmall!.copyWith(
             fontSize: 18.0,
             color: Colors.grey,
             fontWeight: FontWeight.bold,
